@@ -1,0 +1,12 @@
+{
+	"appId": "com.nickciaff.riftraiders",
+	"appName": "Rift Raiders",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"server": {
+		"androidScheme": "https"
+	},
+	"packageClassList": [
+		"PurchasesPlugin"
+	]
+}

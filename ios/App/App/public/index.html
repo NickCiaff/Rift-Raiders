@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Rift Raiders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero-banner card">
+      <div>
+        <p class="eyebrow">Mobile idle-action RPG</p>
+        <h1>Rift Raiders</h1>
+        <p class="subtitle">Push deeper into the rift, stack relics, hatch companions, and cash in timed offers.</p>
+      </div>
+      <button id="claimIdleBtn" class="primary-button">Claim Idle Loot</button>
+    </header>
+
+    <section class="top-stats">
+      <article class="stat-pill card">
+        <span>Gold</span>
+        <strong id="goldValue">0</strong>
+      </article>
+      <article class="stat-pill card gem">
+        <span>Gems</span>
+        <strong id="gemsValue">0</strong>
+      </article>
+      <article class="stat-pill card">
+        <span>Power</span>
+        <strong id="powerValue">0</strong>
+      </article>
+      <article class="stat-pill card">
+        <span>Stage</span>
+        <strong id="stageValue">1-1</strong>
+      </article>
+    </section>
+
+    <main class="game-grid">
+      <section class="card battle-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Current run</p>
+            <h2>Battle</h2>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="autoBattleToggle">
+            <span>Auto</span>
+          </label>
+        </div>
+        <div class="enemy-panel">
+          <div>
+            <p id="enemyName" class="enemy-name">Void Slime</p>
+            <p id="enemyFlavor" class="muted">A drifting parasite from the first breach.</p>
+          </div>
+          <span id="enemyBadge" class="enemy-badge">Normal</span>
+        </div>
+        <div class="hp-wrap">
+          <div class="hp-bar">
+            <div id="enemyHpBar" class="hp-fill"></div>
+          </div>
+          <p id="enemyHpText" class="muted">0 / 0 HP</p>
+        </div>
+        <div class="battle-actions">
+          <button id="attackBtn" class="primary-button">Strike</button>
+          <button id="skillBtn" class="secondary-button">Rift Burst</button>
+          <button id="bossBtn" class="secondary-button">Force Boss</button>
+        </div>
+        <div class="battle-metrics">
+          <div><span>DPS</span><strong id="dpsValue">0</strong></div>
+          <div><span>Crit</span><strong id="critValue">0%</strong></div>
+          <div><span>Lifesteal</span><strong id="lifestealValue">0%</strong></div>
+        </div>
+        <div id="battleLog" class="log"></div>
+      </section>
+
+      <section class="card progression-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Team growth</p>
+            <h2>Upgrades</h2>
+          </div>
+        </div>
+        <div class="upgrade-list">
+          <button data-upgrade="attack" class="upgrade-button">
+            <span>Sharpen Blade</span>
+            <small>Increase attack</small>
+            <strong id="attackUpgradeCost">0</strong>
+          </button>
+          <button data-upgrade="health" class="upgrade-button">
+            <span>Fortify Armor</span>
+            <small>Increase max HP</small>
+            <strong id="healthUpgradeCost">0</strong>
+          </button>
+          <button data-upgrade="crit" class="upgrade-button">
+            <span>Lucky Sigil</span>
+            <small>Increase crit rate</small>
+            <strong id="critUpgradeCost">0</strong>
+          </button>
+          <button data-upgrade="lifesteal" class="upgrade-button">
+            <span>Blood Pact</span>
+            <small>Heal from damage</small>
+            <strong id="lifestealUpgradeCost">0</strong>
+          </button>
+        </div>
+        <div class="quest-card">
+          <p class="eyebrow">Quest chain</p>
+          <h3 id="questTitle">Quest</h3>
+          <p id="questDesc" class="muted"></p>
+          <div class="hp-bar quest-bar">
+            <div id="questBar" class="hp-fill quest-fill"></div>
+          </div>
+          <p id="questProgress" class="muted"></p>
+          <button id="claimQuestBtn" class="primary-button subtle">Claim Quest Reward</button>
+        </div>
+      </section>
+
+      <section class="card companions-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Retention loop</p>
+            <h2>Companions</h2>
+          </div>
+          <button id="summonBtn" class="secondary-button">Summon 100 Gems</button>
+        </div>
+        <div id="companionsList" class="companions-list"></div>
+      </section>
+
+      <section class="card store-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Live billing</p>
+            <h2>Store</h2>
+          </div>
+          <button id="restorePurchasesBtn" class="secondary-button">Restore</button>
+        </div>
+        <p id="storeStatus" class="muted">Connecting store...</p>
+        <div id="offersList" class="offers-list"></div>
+        <p class="disclaimer">Apple and Google purchases are loaded from RevenueCat offerings on native builds. Browser mode shows setup guidance instead.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
